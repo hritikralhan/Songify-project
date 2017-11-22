@@ -57,10 +57,6 @@ $('#replace-song').on('click', function (){
 
 });
 
-$("#song1").hover(function(){
-    $('.song-lyrics').removeClass('hidden');
-    });
-
 $('.welcome-screen button').on('click', function() {
     var name = $('#name-input').val();
 
@@ -68,8 +64,10 @@ $('.welcome-screen button').on('click', function() {
         var message = "Welcome, " +  name;
         $('.main .user-name').text(message);
         $('.welcome-screen').addClass('hidden');
+        // $('.welcome-screen').removeClass('bigslide');
         $('.main').removeClass('hidden');
         fetchSongs() ;
+
 
     }
     else {
@@ -77,6 +75,28 @@ $('.welcome-screen button').on('click', function() {
         $('#error-text').removeClass('hidden');
     }
 });
+
+$("#song1").hover(function(){
+    $('.a').removeClass('hidden');
+}, function(){
+    $('.a').addClass('hidden');
+});
+$("#song2").hover(function(){
+    $('.b').removeClass('hidden');
+}, function(){
+    $('.b').addClass('hidden');
+});
+$("#song3").hover(function(){
+    $('.c').removeClass('hidden');
+}, function(){
+    $('.c').addClass('hidden');
+});
+$("#song4").hover(function(){
+    $('.d').removeClass('hidden');
+}, function(){
+    $('.d').addClass('hidden');
+});
+
 
 $('#logout').click(function(){
     $('.welcome-screen').removeClass('hidden');
@@ -116,7 +136,6 @@ function updateCurrentTime() {
     currentTime = fancyTimeFormat(currentTime);
     duration = fancyTimeFormat(duration);
     remainingTime = fancyTimeFormat(remainingTime);
-    console.log(currentTime);
     $('.time-elapsed').text(currentTime);
     $('.song-duration').text(duration);
     $('.time-left').text(remainingTime);
@@ -148,6 +167,7 @@ function addSongNameClickEvent(songObj,position) {
         }
     });
 
+
 }
 
 var songs = [];
@@ -167,12 +187,18 @@ function fetchSongs() {
             setupApp();
             $('.total-songs').text("Songs: " + songs.length);
 
+        },
+        'error': function(data) {
+            alert('Sorry the songs could not be fetched!! Please try again');
+            $('#wait').hide();
         }
+
     }) ;
     $('body').on('keypress',function(event) {
         if (event.keyCode == 32 || event.keyCode == 80 || event.keyCode == 112){
             toggleSong()
         }
+
     });
 
 }
@@ -199,3 +225,18 @@ function setupApp() {
 }
 
 
+$('.play-all').on('click', function(){
+    var audio = document.querySelector('audio');
+    console.log(audio);
+    var currentsong = audio.src;
+    var currentTime = Math.floor(audio.currentTime);
+    var duration = Math.floor(audio.duration);
+    console.log(currentTime);
+    console.log(duration);
+    audio.play();
+    if (currentTime == duration) {
+
+    }
+
+    toggleSong();
+});

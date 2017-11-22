@@ -8,17 +8,17 @@
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
-<body>
+<body bgcolor="#1F1F1F">
 
-<div class="wrapper">
-    <section class="welcome-screen ">
-        <h1> Welcome to Songify </h1>
-        <h3> Enter name to access your account </h3>
+<div class="wrapper ">
+    <section class="welcome-screen bigslide">
+        <h1 class="white"> Welcome to Songify </h1>
+        <h3 class="white"> Enter name to access your account </h3>
         <div class="input-wrapper">
-                <input type="text" placeholder="Name" id="name-input" title="Please enter a valid name" autofocus>
+            <input type="text" placeholder="Name" id="name-input" title="Please enter a valid name" autofocus>
             <button> Go </button>
         </div>
-        <p class="hidden" id="error-text">The input name should be minimum of three characters.</p>
+        <p class="hidden white" id="error-text"> Name must have atleast three characters.</p>
     </section>
     <div class="main hidden">
         <header>
@@ -40,32 +40,32 @@
                     <span class="song-artist"></span>
                     <span class="song-album"></span>
                     <span class="song-length"></span>
-                    <span class="song-lyrics hidden"></span>
-                    <span class="song-video hidden"></span>
+                    <span class="song-lyrics hidden a"></span>
+                    <span class="song-video hidden a"></span>
                 </div>
                 <div class="song" id="song2">
                     <span class="song-name"></span>
                     <span class="song-artist"></span>
                     <span class="song-album"></span>
                     <span class="song-length"></span>
-                    <span class="song-lyrics hidden"></span>
-                    <span class="song-video hidden"></span>
+                    <span class="song-lyrics hidden b"></span>
+                    <span class="song-video hidden b"></span>
                 </div>
                 <div class="song" id="song3">
                     <span class="song-name"></span>
                     <span class="song-artist"></span>
                     <span class="song-album"></span>
                     <span class="song-length"></span>
-                    <span class="song-lyrics hidden"></span>
-                    <span class="song-video hidden"></span>
+                    <span class="song-lyrics hidden c"></span>
+                    <span class="song-video hidden c"></span>
                 </div>
                 <div class="song" id="song4">
                     <span class="song-name"></span>
                     <span class="song-artist"></span>
                     <span class="song-album"></span>
                     <span class="song-length"></span>
-                    <span class="song-lyrics hidden"></span>
-                    <span class="song-video hidden"></span>
+                    <span class="song-lyrics hidden d"></span>
+                    <span class="song-video hidden d"></span>
                 </div>
             </div>
             <div>
@@ -74,7 +74,7 @@
                 <i class="fa fa-play clickable play-all" aria-hidden="true"></i>
             </div>
             <div id="submit-song" class="right floated">
-                <span>Replace Song</span>
+                <span class="larger">Replace Song</span>
                 <div class="input-container">
                     <input type="text" id="song-name-input" placeholder="Song Name">
                 </div>
@@ -99,7 +99,7 @@
                 <div class="input-container">
                     <input type="text" id="song-image-input" placeholder="Song Image URL">
                 </div>
-                <div class="input-container">
+                <div class="input-container button">
                     <button id="replace-song">Replace Song</button>
                 </div>
             </div>
@@ -114,7 +114,10 @@
         <footer>
             <div class="controls">
                 <div class="player-buttons">
+                    <div class="rew"></div>
                     <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
+                    <div class="fwd"></div>
+
                 </div>
                 <div class="progress-wrapper">
                     <span class="time-elapsed"> </span>
